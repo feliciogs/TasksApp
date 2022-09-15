@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import com.devmasterteam.tasks.service.listener.APIListener
 import com.devmasterteam.tasks.service.model.PriorityModel
 import com.devmasterteam.tasks.service.model.TaskModel
+import com.devmasterteam.tasks.service.model.ValidationModel
 import com.devmasterteam.tasks.service.repository.PriorityRepository
 import com.devmasterteam.tasks.service.repository.TaskRepository
 
@@ -18,21 +19,45 @@ class TaskFormViewModel(application: Application) : AndroidViewModel(application
     private val _priorityList =  MutableLiveData<List<PriorityModel>>()
     val priorityList: LiveData<List<PriorityModel>> = _priorityList
 
-    private val _saveTask =  MutableLiveData<Boolean>()
-    val saveTask: LiveData<Boolean> = _saveTask
+    private val _saveTask =  MutableLiveData<ValidationModel>()
+    val saveTask: LiveData<ValidationModel> = _saveTask
+
+    private val _task =  MutableLiveData<TaskModel>()
+    val task: LiveData<TaskModel> = _task
+
+    private val _taskLoad =  MutableLiveData<ValidationModel>()
+    val taskLoad: LiveData<ValidationModel> = _taskLoad
 
     fun loadPriorities(){
         _priorityList.value = priorityRepository.list()
     }
 
     fun saveTask(task: TaskModel) {
-        taskRepository.create(task, object : APIListener<Boolean>{
+        val listener = object : APIListener<Boolean>{
             override fun onSuccess(result: Boolean) {
-                _saveTask.value = result
+                _saveTask.value = ValidationModel()
             }
 
             override fun onFailure(message: String) {
-                TODO("Not yet implemented")
+                _saveTask.value = ValidationModel(message)
+            }
+        }
+
+        if(task.id == 0){
+            taskRepository.create(task,listener)
+        }else{
+            taskRepository.update(task,listener)
+        }
+    }
+
+    fun load(id:Int){
+        taskRepository.load(id, object :APIListener<TaskModel>{
+            override fun onSuccess(result: TaskModel) {
+                _task.value = result
+            }
+
+            override fun onFailure(message: String) {
+                _taskLoad.value = ValidationModel(message)
             }
 
         })
