@@ -18,10 +18,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
+        style="@style/ViewDivider"
         android:id="@+id/view_description"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/edit_description" />
 
     <TextView
@@ -44,6 +44,7 @@
         app:layout_constraintTop_toBottomOf="@+id/text_priority" />
 
     <View
+        style="@style/ViewDivider"
         android:id="@+id/view_complete"
         android:layout_width="0dp"
         android:layout_height="1dp"
@@ -63,6 +64,7 @@
         app:layout_constraintTop_toBottomOf="@+id/view_complete" />
 
     <View
+        style="@style/ViewDivider"
         android:id="@+id/view_date"
         android:layout_width="0dp"
         android:layout_height="1dp"
@@ -70,20 +72,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/check_complete" />
 
+    <TextView
+        android:id="@+id/text_limit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/data_limite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_date" />
+
     <Button
         android:id="@+id/button_date"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:textColor="@color/black"
         android:background="@android:color/transparent"
         android:gravity="center_vertical"
         android:hint="@string/clique_para_selecionar_a_data"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_date" />
+        app:layout_constraintTop_toBottomOf="@+id/text_limit" />
 
     <View
+        style="@style/ViewDivider"
         android:id="@+id/view_save"
         android:layout_width="0dp"
         android:layout_height="1dp"
@@ -98,6 +110,7 @@
         android:text="@string/adicionar_tarefa"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        style="@style/DefaultButton"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

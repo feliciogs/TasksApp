@@ -9,6 +9,8 @@
 
     <EditText
         android:id="@+id/edit_name"
+        android:drawableStart="@drawable/ic_name"
+        android:drawablePadding="8dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -21,6 +23,8 @@
 
     <EditText
         android:id="@+id/edit_email"
+        android:drawableStart="@drawable/ic_mail"
+        android:drawablePadding="8dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -32,6 +36,8 @@
 
     <EditText
         android:id="@+id/edit_password"
+        android:drawableStart="@drawable/ic_lock"
+        android:drawablePadding="8dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -50,6 +56,7 @@
         android:text="@string/cadastrar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        style="@style/DefaultButton"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

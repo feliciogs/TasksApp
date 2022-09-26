@@ -5,22 +5,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
+    android:background="@drawable/shape_background"
     tools:context=".view.LoginActivity">
 
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="240dp"
+        android:layout_height="160dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_logotipo"/>
+
     <EditText
+        style="@style/EditTextWhite"
         android:id="@+id/edit_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
         android:hint="@string/email"
+        android:drawableStart="@drawable/ic_mail"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/img_logo" />
 
     <EditText
+        style="@style/EditTextWhite"
         android:id="@+id/edit_password"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/white"
+        android:textColorHint="@color/white"
         android:layout_width="0dp"
+        android:drawableStart="@drawable/ic_lock"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:hint="@string/senha"
@@ -38,13 +55,15 @@
         android:text="@string/entrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edit_password" />
+        app:layout_constraintTop_toBottomOf="@id/edit_password"
+        style="@style/DefaultButton"/>
 
     <TextView
         android:id="@+id/text_new_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/nao_tem_uma_conta"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/text_register"
         app:layout_constraintHorizontal_chainStyle="packed"
@@ -57,6 +76,7 @@
         android:layout_marginStart="8dp"
         android:layout_toEndOf="@id/text_new_account"
         android:text="@string/cadastre_se"
+        android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
